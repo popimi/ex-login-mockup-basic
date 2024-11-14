@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/script.js"></script>
+    <script>
+      window.onload = () => {
+        const loggedIn = localStorage.getItem("isLogin");
+
+        if (!loggedIn) {
+          window.location.href = "index.html";
+        }
+        const username = localStorage.getItem("username");
+
+        if (!username) {
+          window.location.href = "index.html";
+        } else if (username) {
+          document.getElementById("username").innerText = `hello ${username}.`;
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <nav class="p-2 bg-slate-400">
+      <ol class="flex gap-4 items-center justify-between">
+        <li>
+          <h2 id="username"></h2>
+        </li>
+        <li>
+          <button
+            type="submit"
+            class="bg-green-500 text-white rounded-md p-2 hover:bg-green-600 duration-200"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+        </li>
+      </ol>
+    </nav>
+    <div
+      class="flex flex-col bg-slate-300 justify-center items-center h-dvh gap-5"
+    >
+      content here
+    </div>
+  </body>
+</html>

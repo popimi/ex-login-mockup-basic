@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/script.js"></script>
+    <script>
+      window.onload = () => {
+        const loggedIn = localStorage.getItem("isLogin");
+
+        if (loggedIn) {
+          window.location.href = "auth-home.html";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      class="flex flex-col bg-slate-300 justify-center items-center h-dvh gap-5"
+    >
+      <h1 class="text-2xl font-bold">My Site</h1>
+      <form class="flex gap-4 flex-col w-fit">
+        <label>
+          <input
+            class="bg-slate-200 rounded-md p-2 outline-none duration-150 border focus:border-slate-500"
+            type="text"
+            placeholder="Username"
+            id="username"
+          />
+        </label>
+        <label>
+          <input
+            class="bg-slate-200 rounded-md p-2 outline-none duration-150 border focus:border-slate-500"
+            type="password"
+            placeholder="Password"
+            id="password"
+          />
+        </label>
+        <div class="flex justify-between">
+          <button
+            type="submit"
+            class="bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 duration-200"
+            onclick="login(event)"
+          >
+            Login
+          </button>
+          <button
+            type="submit"
+            class="bg-green-500 text-white rounded-md p-2 hover:bg-green-600 duration-200"
+            onclick="register(event)"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
