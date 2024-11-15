@@ -1,5 +1,18 @@
 const userList = [{ username: "admin", password: "admin" }]; // Array of user object
 
+const categoryListData = [
+  { name: "All" },
+  { name: "Technology" },
+  { name: "Food" },
+  { name: "Travel" },
+  { name: "Fashion" },
+  { name: "Sport" },
+  { name: "Music" },
+  { name: "Movie" },
+  { name: "Book" },
+  { name: "Game" },
+];
+
 const login = (event) => {
   event.preventDefault(); // Prevent form submit
   const username = document.getElementById("username").value; // Get username from input
@@ -48,4 +61,28 @@ const logout = () => {
   localStorage.removeItem("isLogin"); // Remove isLogin from local storage
   localStorage.removeItem("username"); // Remove username from local storage
   window.location.href = "index.html"; // Redirect to login page
+};
+
+const toggle = () => {
+  const categoryListItem = document.getElementById("category-list-item");
+  categoryListItem.innerHTML = categoryListData
+    .map((category) => {
+      return `<li class="hover:cursor-pointer hover:text-slate-200 duration-200">
+        ${category.name}
+      </li>`;
+    })
+    .join("");
+
+  const categoryList = document.getElementById("category-list");
+
+  const currentTransform = categoryList.style.transform;
+
+  if (currentTransform === "" || currentTransform === "translateX(0px)") {
+    categoryList.style.transform = "translateX(-100%)";
+  } else {
+    categoryList.style.transform = "translateX(0px)";
+  }
+
+  // เพิ่ม transition เพื่อให้การเคลื่อนที่นุ่มนวลขึ้น
+  categoryList.style.transition = "transform 0.3s ease";
 };

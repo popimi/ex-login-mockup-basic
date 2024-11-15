@@ -18,16 +18,38 @@
         if (!username) {
           window.location.href = "index.html";
         } else if (username) {
-          document.getElementById("username").innerText = `hello ${username}.`;
+          document.getElementById("username").innerText = `hello, ${username}.`;
         }
       };
     </script>
   </head>
   <body>
+    <aside
+      id="category-list"
+      class="inset-0 transition-all -translate-x-full duration-300 bg-slate-400 absolute flex flex-col justify-center items-center gap-5"
+    >
+      <button
+        class="flex gap-1 flex-col absolute top-[21px] right-4"
+        onclick="toggle(event)"
+      >
+        <div class="w-4 h-0.5 bg-black"></div>
+        <div class="w-4 h-0.5 bg-black"></div>
+        <div class="w-4 h-0.5 bg-black"></div>
+      </button>
+      <h1 class="text-2xl font-bold">Category</h1>
+      <ol id="category-list-item"></ol>
+    </aside>
     <nav class="p-2 bg-slate-400">
       <ol class="flex gap-4 items-center justify-between">
         <li>
-          <h2 id="username"></h2>
+          <button class="flex gap-1 flex-col" onclick="toggle(event)">
+            <div class="w-4 h-0.5 bg-black"></div>
+            <div class="w-4 h-0.5 bg-black"></div>
+            <div class="w-4 h-0.5 bg-black"></div>
+          </button>
+        </li>
+        <li>
+          <h2 id="username" class="text-white font-bold"></h2>
         </li>
         <li>
           <button
@@ -41,7 +63,7 @@
       </ol>
     </nav>
     <div
-      class="flex flex-col bg-slate-300 justify-center items-center h-dvh gap-5"
+      class="flex flex-col bg-slate-300 justify-center items-center h-[calc(100dvh-60px)] gap-5"
     >
       content here
     </div>
